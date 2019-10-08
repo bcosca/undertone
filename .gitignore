@@ -1,0 +1,5 @@
+*.lock
+*.log
+.htaccess
+.nyc_output
+node_modules
