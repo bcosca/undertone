@@ -2,7 +2,7 @@
 
 A [Custom Elements (v1-spec)](https://html.spec.whatwg.org/multipage/custom-elements.html) code organizer/compiler that tones down Javascript by emphasizing the structure and beauty of HTML.
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/bcosca/undertone) [![JavaScript Style Guide](//img.shields.io/badge/code_style-standard-brightgreen.svg)](//standardjs.com) ![GitHub](https://img.shields.io/github/license/bcosca/undertone?color=blue)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/bcosca/undertone) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](//standardjs.com) ![GitHub](https://img.shields.io/github/license/bcosca/undertone?color=blue)
 
 #### Installation
 
