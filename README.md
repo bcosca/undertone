@@ -269,7 +269,7 @@ An optional **`%else`** directive may be inserted to provide a fallback mechanis
 <my-bar>
   %if (age > 18):
   <span class="green">Have a drink</span>
-  %else if (age === 18)
+  %else if (age === 18):
   <span class="orange">ID please</span>
   %else:
   <span class="red">Go away!</span>
