@@ -80,7 +80,7 @@
       '\n'
     )
   } else {
-    ;(async () => {
+    ;(() => {
       let preamble = fs.readFileSync(options.primitive, encoding).toString()
       let match = preamble.match(/(?<=class ).+?(?= extends)/)
       let classname
@@ -99,43 +99,45 @@
       }
 
       // Process input files
-      for (let i = 0; i < files.length; i++) {
-        let code = fs.readFileSync(files[i], encoding)
-        // Retrieve transpiled code and source map
-        let result = (
-          compiler.generate(
-            code,
-            { filename: files[i], scoped: options.scoped, classname }
+      ;(async () => {
+        for (let i = 0; i < files.length; i++) {
+          let code = fs.readFileSync(files[i], encoding)
+          // Retrieve transpiled code and source map
+          let result = (
+            compiler.generate(
+              code,
+              { filename: files[i], scoped: options.scoped, classname }
+            )
           )
-        )
-        content += result.code
-        // Feed the transpiled code to the source map engine
-        if (options.map && result.map.mappings) {
-          let consumer = await new sourceMap.SourceMapConsumer(result.map)
-          node.add(
-            sourceMap.SourceNode
-              .fromStringWithSourceMap(result.code, consumer)
-          )
-          consumer.destroy()
+          content += result.code
+          // Feed the transpiled code to the source map engine
+          if (options.map && result.map.mappings) {
+            let consumer = await new sourceMap.SourceMapConsumer(result.map)
+            node.add(
+              sourceMap.SourceNode
+                .fromStringWithSourceMap(result.code, consumer)
+            )
+            consumer.destroy()
+          }
         }
-      }
 
-      if (options.map) {
-        // Generate the aggregated source map
-        content += '\n//# sourceMappingURL='
-        let gen = node.toStringWithSourceMap().map.toString()
-        if (options.map === 'inline') {
-          content += (
-            'data:application/json;charset=utf-8;base64,' + window.btoa(gen)
-          )
-        } else {
-          content += options.map.replace(/^.+\//, '')
-          fs.writeFileSync(options.map, gen)
+        if (options.map) {
+          // Generate the aggregated source map
+          content += '\n//# sourceMappingURL='
+          let gen = node.toStringWithSourceMap().map.toString()
+          if (options.map === 'inline') {
+            content += (
+              'data:application/json;charset=utf-8;base64,' + window.btoa(gen)
+            )
+          } else {
+            content += options.map.replace(/^.+\//, '')
+            fs.writeFileSync(options.map, gen)
+          }
         }
-      }
-      // Send to designated output
-      if (options.out) fs.writeFileSync(options.out, content)
-      else console.log(content || '')
+        // Send to designated output
+        if (options.out) fs.writeFileSync(options.out, content)
+        else console.log(content || '')
+      })()
     })()
   }
 })()
