@@ -1,4 +1,4 @@
-![Logo](logo.png)
+![Logo](https://github.com/bcosca/undertone/raw/master/logo.png)
 
 A [Custom Elements (v1-spec)](https://html.spec.whatwg.org/multipage/custom-elements.html) code organizer/compiler that tones down Javascript by emphasizing the structure and beauty of HTML.
 
