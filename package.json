@@ -1,6 +1,6 @@
 {
   "name": "undertone",
-  "version": "0.9.7",
+  "version": "0.9.8",
   "description": "A Custom Elements (v1-spec) code organizer/compiler that tones down Javascript by emphasizing the structure and beauty of HTML",
   "scripts": {
     "lint": "run-p lint:*",
