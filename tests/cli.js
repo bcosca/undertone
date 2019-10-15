@@ -94,7 +94,7 @@
     })()
 
     ;(() => {
-      glob.sync(`${tmp}*.min.js{,.map}`).forEach((file) => {
+      glob.sync(`${tmp}test.html.js{,.map}`).forEach((file) => {
         fs.unlinkSync(file)
       })
       t.ok(
