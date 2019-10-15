@@ -1,7 +1,17 @@
 {
   "name": "undertone",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "description": "A Custom Elements (v1-spec) code organizer/compiler that tones down Javascript by emphasizing the structure and beauty of HTML",
+  "keywords": [
+    "undertone",
+    "html5",
+    "web components",
+    "user interface",
+    "es6",
+    "custom elements",
+    "declarative",
+    "front end"
+  ],
   "scripts": {
     "lint": "run-p lint:*",
     "lint:js": "standard -v --global define --plugin html 'src/*.js'",
@@ -26,5 +36,12 @@
   "dependencies": {
     "jsdom": "^15.1.1",
     "source-map": "^0.7.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bcosca/undertone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bcosca/undertone/issues"
   }
 }
