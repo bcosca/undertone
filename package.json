@@ -8,9 +8,7 @@
     "codecov": "nyc --exclude 'tests/*.js' --reporter=text tape 'tests/*.js'",
     "complexity": "cqc src/ --verbose --disable-jscpd",
     "test": "run-s lint codecov complexity",
-    "build": "run-p test",
-    "watch": "node tinylr.js & run-p watch:*",
-    "watch:main": "onchange -i 'src/*.js' 'tests/*.js' 'tests/tags/*.html' -- run-s build"
+    "build": "run-p test"
   },
   "main": "src/compiler.js",
   "bin": "src/cli.js",
