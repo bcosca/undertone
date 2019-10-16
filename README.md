@@ -20,7 +20,7 @@ A custom element definition is nothing more than a self-contained HTML fragment 
   <script>
     const message = 'Hello, world'
   </script>
-</planet-earth>
+</planet-mars>
 ```
 
 The compiler rebuilds the above structure representing the source code into a reusable Web component that works on any browser aligned with the ES6+ Custom Elements v1 language specs. The following generated code is an approximate translation:
